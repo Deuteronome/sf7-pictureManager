@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+<main class="d-flex main-default justify-content-center align-items-center">
+
+    <div class="container-fluid">
+           
+        <section class="row justify-content-center">
+
+            <div class="col-10 col-lg-8 col-xxl-6">
+                <h1>Inscription</h1>
+
+                {{ form_errors(registrationForm) }}
+
+                {{ form_start(registrationForm) }}
+                    {{ form_row(registrationForm.code) }}
+                    {{ form_row(registrationForm.name) }}
+                    {{ form_row(registrationForm.lastname) }}
+                    {{ form_row(registrationForm.email) }}
+                    {{ form_row(registrationForm.plainPassword) }}
+                    
+
+                    <button type="submit" class="btn btn-lg btn-dark mt-3">Inscription</button>
+                {{ form_end(registrationForm) }}
+            </div>
+        </section>
+    </div>
+</main>
+{% endblock %}

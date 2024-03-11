@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajout d'image{% endblock %}
+
+{% block body %}
+    <main class="d-flex main-default justify-content-center align-items-center">
+
+        <div class="container-fluid">
+                
+            <section class="row justify-content-center">
+
+                <div class="col-10 col-lg-8 col-xxl-6">
+                    <h1 class="h3">ajout d'image</h1>
+                    
+                    {{ form_errors(form) }}
+                    {{ form_start(form) }}
+                        {{ form_row(form.name) }}
+                        {{ form_row(form.image) }}
+
+                        <button type="submit" class="btn btn-lg btn-dark mt-4">Ajouter</button>
+                    {{ form_end(form) }}
+                </div>
+            </section>
+        </div>
+    </main>
+{% endblock %}

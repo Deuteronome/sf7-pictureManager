@@ -1,0 +1,32 @@
+{% extends "base.html.twig" %}
+
+{% block title %}mot de passe oublié{% endblock %}
+
+{% block body %}
+
+    {{ form_errors(renewalRequestForm) }}
+
+    <main class="d-flex main-default justify-content-center align-items-center">
+
+        <div class="container-fluid">
+            
+            <section class="row justify-content-center">
+
+                <div class="col-10 col-lg-8 col-xxl-6">
+                    <h1 class="h3 my-3">Demande de renouvellement de mot de passe</h1>
+                    <p class="text-default">Indiquez votre mail ci-dessous. Si un compte existe pour cette adresse, un mail de réinitialisation vous sera envoyé.</p>
+                    {{ form_start(renewalRequestForm) }}
+
+                        {{ form_row(renewalRequestForm.email) }}
+
+                        <button type="submit" class="btn btn-lg btn-dark my-3">Envoyer la demande</button>
+                    {{ form_end(renewalRequestForm) }}
+                </div>
+            </section>
+        </div>
+    </main>
+   
+{% endblock %}
+
+
+

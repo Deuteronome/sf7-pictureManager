@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Codes d'inscription{% endblock %}
+
+{% block body %}
+<main class="d-flex flex-column main-default justify-content-evenly align-items-center">
+
+    <div class="container-fluid">
+           
+        <div class="row justify-content-center">
+
+            <div class="col-10 col-lg-8 col-xxl-6">
+                {{ form_start(form) }}
+                <section class="row pt-4 justify-content-center">
+                    <div class="col-8 col-lg-6 code-box text-center p-1 p-lg-4">{{code}}</div>
+                </section>
+                <section class="row p-4 justify-content-center">
+                    <button type="submit" class="col-10 col-lg-6 col-lg-4 btn btn-lg btn-dark mt-3">Créer le code</button>
+                    
+
+                </section>
+                {{ form_end(form) }}
+
+                
+                
+            </div>
+        
+        </div>
+
+    </div>
+
+    <div class="container-fluid">
+           
+        <div class="row justify-content-center">
+            {% if codeList is not empty %}
+                <div class="col-lg-3 col-4 text-center py-2 border bg-secondary lead">Code</div>
+                <div class="col-lg-3 d-none d-lg-block text-center py-2 border bg-secondary lead">Création</div>
+                <div class="col-lg-5 col-7 text-center py-2 border bg-secondary lead">Utilisation</div>
+                {% for validCode in codeList %}
+                    <div class="col-lg-3 col-4 text-center py-2 border">{{ validCode.code }}</div>
+                    <div class="col-lg-3 d-none d-lg-block col-0 text-center py-2 border">{{ validCode.createdAt | date("d/m/Y") }}</div>
+                    <div class="col-lg-5 col-7 text-center py-2 border">
+                     {% if validCode.usedBy is null%}
+                        non utilisé
+                     {% else %}                        
+                        {{ validCode.usedBy.email }}
+                     {% endif %}
+                     
+                    </div>
+                    
+                        
+                    
+                {% endfor %}
+                
+                
+            {% else %}                    
+                <h1 class="text-center">Aucun code d'inscription généré</h1>
+            {% endif %}
+                
+        </div>
+    </div>
+
+</main>
+
+{% endblock %}

@@ -1,3 +1,76 @@
+@font-face {
+    font-family: 'custom';
+    src: url('./chopin.ttf');
+}
+
+* {
+    margin : 0;
+    padding : 0;
+    box-sizing: border-box;
+}
+
 body {
-    background-color: skyblue;
+    font-family: 'custom', sans-serif;
+    font-weight: 700;
+}
+
+.nav-logo {
+    width : 5vh;
+    height: 5vh;
+}
+
+.space {
+    width : 2vh;
+}
+
+.navbar-custom {
+    position: fixed;
+    width: 100%;
+    z-index:10;
+}
+
+.main-default {
+    min-height: 88vh;
+    position : relative;
+    top : 6vh;
+}
+
+.form-custom {
+background-color: white;
+}
+
+.code-box {
+    border : solid black 1px;
+    border-radius: 1px;
+    font-size:xx-large;
+    font-weight: 900;
+}
+
+.alert-custom {
+    position: fixed;
+    top : 10vh;
+    left : 10vw;
+    width : 80vw;
+}
+
+.image-sticker {
+    box-shadow: 2px 2px 5px 0;
+}
+
+.picture-container {
+    position: fixed;
+    width : 100vw;
+    height: 100vh;
+    z-index :20;
+    background-color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    top : 0;
+}
+
+.close-button {
+    position: fixed;
+    top : 3vh;
+    right: 2vw;
 }

@@ -1,0 +1,9 @@
+<h1>Changement de mot de passe</h1>
+
+<p>bonjour {{user.name}} {{user.lastname}},</p>
+
+<p>Pour changer le mot de passe de votre compte sur la plateforme PicLib, cliquez sur le lien ci-dessous :</p>
+
+<a href="{{ absolute_url(path('app_renewal', {token: token}))}}">Lien de modification de mot de passe</a>
+
+<p>Ce lien expirera 3 heures après votre demande.</p>

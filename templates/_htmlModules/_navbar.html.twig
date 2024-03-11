@@ -1,0 +1,54 @@
+<nav class="navbar navbar-expand-lg bg-dark text-light navbar-custom" data-bs-theme="dark">
+  <div class="container-fluid">
+        <img src="{{ asset('icons/picLib-white.png')}}" class="nav-logo" alt="logo">
+        <div class="space"></div>
+        <a class="navbar-brand" href="#"> Pic-Lib{% if app.user %} - bonjour {{app.user.name}} {% endif %}
+        </a>
+      
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    {% if app.user %}
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link"  href=" {{ path('app_gallery')}}">Gallerie</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ path('app_picture')}}">Ajout Image</a>
+        </li>
+        {% if app.user.roles[0] is same as 'ROLE_ADMIN' %}
+          <li class="nav-item">
+            <a class="nav-link"  href=" {{ path('app_generator')}}">Code d'inscription</a>
+          </li>
+        {% endif %}      
+        <li class="nav-item">
+          <a class="nav-link" href="{{ path('app_logout')}}">Déconnexion</a>
+        </li>
+      </ul>
+      
+    </div>
+    {% else %}
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link"  href=" {{ path('app_login')}}">Connexion</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ path('app_register')}}">Inscription</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"  href="{{ path('app_pwreset')}}">Mot de passe oublié</a>
+        </li>       
+      </ul>
+      
+    </div>
+      
+    {% endif %}
+      
+   
+    
+    
+    
+  </div>
+</nav>

@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Gallerie{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('gallery.js') }}" defer></script>
+{% endblock %}
+
+{% block body %}
+
+    <main class="d-flex flex-column main-default pb-5">
+
+        <div class="container-fluid p-5">
+             
+            <section class="row">
+                <h2 class="h3 col-9 offset-2 border-bottom">Vos images</h2>
+            </section>
+
+            <section class="row mt-2">
+            {% for image in images %}
+                <div class="col-xxl-3 col-lg-4 col-md-6 col-12 py-3 d-flex flex-column align-items-center image-sticker">
+                    <h3 class="h4 mb-3">{{image.name}}</h3>
+                    <input type="hidden" name="del" value="{{ path('app_delete', { 'id': image.id })}}">                    
+                    <img src='{{ asset("assets/picLibrary/#{app.user.id}/mini/mini-#{image.fileName}")}}' alt="{{image.name}}" class="img-fluid">
+                    <div class="row w-100">
+                        <a href='{{ asset("assets/picLibrary/#{app.user.id}/#{image.fileName}")}}' class="btn btn-dark btn-lg mt-3 mx-2 col-6" target="_blank">Voir l'image</a>
+                        <button class="col-2 btn btn-lg btn-secondary mt-3 mx-2"><img src="{{ asset('icons/copie.png') }}" alt="corbeille" class="img-fluid"></button>
+                        <button class="col-2 btn btn-lg btn-danger mt-3 mx-2"><img src="{{ asset('icons/corbeille.png') }}" alt="corbeille" class="img-fluid"></button>
+                    </div>
+                    
+                </div>
+            {% endfor %}
+                
+            </section>
+        </div>
+    </main>
+    
+{% endblock %}
